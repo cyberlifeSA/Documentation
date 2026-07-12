@@ -118,12 +118,131 @@ index="botsv3" coinhive
 
 ![](../Fotos/Pasted%20image%2020260711235934.png)
 
+- coinhive.com - 20.104.209.59
+- ws001.coinhive.com - 217.182.164.14
+- ws005.coinhive.com - 37.187.165.41
+- ws011.coinhive.com - 37.187.166.108
+- ws014.coinhive.com - 37.187.167.21
+- ws019.coinhive.com - 37.187.167.47
+
 Al comparar los equipos **BSTOLL-L** y **MKRAEUS-L** y analizar los eventos DNS asociados a los servidores de Coinhive, se observa que **MKRAEUS-L** únicamente registra respuestas DNS, mientras que **BSTOLL-L** presenta tanto consultas como respuestas DNS. Esto indica que la actividad se originó en **BSTOLL-L**, por lo que la evidencia apunta a un único resultado.
 
 **Results:** Host=BSTOLL-L SourceIp=192.168.247.131 DestinationIp=192.168.247.2 Query=coinhive.com
+
+### Destinos de Mineria visitada por Endpoint
 
 ```cql
 index="botsv3" sourcetype=stream:dns host="BSTOLL-L" coinhive
 | stats dc(query)
 ```
+
+![](../Fotos/Pasted%20image%2020260712004620.png)
+
+**Results:** 6
+### Primer ID de firma visto por amenaza en Endpoint
+
+```cql
+index="botsv3" sourcetype = symantec:ep:security:file host="SEPM" *signature*
+| sort _time
+```
+
+![](../Fotos/Pasted%20image%2020260712012702.png)
+
+En un antivirus como **Symantec Endpoint Protection (SEP)**, una **firma** (_signature_) es un patrón que permite identificar una amenaza conocida.
+
+**Results:** 30356
+
+### Gravedad de amenaza Symantec para criptomineria (Informativo)
+
+**Results:** Medium
+
+### Identificación de host que logra bloquear criptomineria a través de symantec bloqueando traffico.
+
+```cql
+index="botsv3" sourcetype="symantec*" AND *coin*
+```
+
+![](../Fotos/Pasted%20image%2020260712142732.png)
+
+**Results:** BTUN-L
+
+### FQDN del endpoint que ejecuta una edición diferente del sistema operativo Windows que los demás
+
+```cql
+index="botsv3" sourcetype="winhostmon" OS  | rex "OS=\"(?<OS>[^\"]+)\"" | stats count by OS
+```
+
+![](../Fotos/Pasted%20image%2020260712151955.png)
+
+```cql
+index="botsv3" sourcetype="winhostmon" OS  | rex "OS=\"(?<OS>[^\"]+)\"" | search OS="Microsoft Windows 10 Enterprise"
+```
+
+![](../Fotos/Pasted%20image%2020260712152510.png)
+
+```cql
+index="botsv3" sourcetype="winhostmon" OS  | rex "OS=\"(?<OS>[^\"]+)\"" | stats count by OS host
+```
+
+![](../Fotos/Pasted%20image%2020260712153649.png)
+
+```cql
+index=botsv3 sourcetype="WinEventLog:Security" host="BSTOLL-L"
+```
+
+![](../Fotos/Pasted%20image%2020260712155341.png)
+
+**Results:** BSTOLL-L.froth.ly **User:** Bud Stoll
+
+### Investigar tiempo en segundos, cuanto tarda en generarse la criptomoneda en el endpoint
+
+Un **flujo NVM (NVM flow)** es un registro de una comunicación de red observada desde un endpoint.
+
+```cql
+index=botsv3 source="cisconvmflowdata" coinhive
+```
+
+![](../Fotos/Pasted%20image%2020260712163534.png)
+
+| `fss="1534772317"` | Marca de tiempo de inicio del flujo (época) - formato en bruto |
+| ------------------ | -------------------------------------------------------------- |
+| `fes="1534773920"` | Marca de tiempo de final de flujo (época) - formato en bruto   |
+
+```cql
+index=botsv3 source="cisconvmflowdata" coinhive
+| stats min(fss) as starttime, max(fes) as endtime
+| eval timetaken = endtime-starttime
+| table timetaken
+```
+
+```cql
+index=botsv3 sourcetype=syslog source=cisconvmflowdata 
+AND (104.20.209.59 OR 217.182.164.14 OR 37.187.165.41 OR 37.187.166.108 OR 37.187.167.21 OR 37.187.167.47)
+|stats min(fss) as starttime max(fes) as endtime
+|eval timetaken = endtime-starttime
+|table timetaken 
+```
+
+![](../Fotos/Pasted%20image%2020260712164306.png)
+
+**Results:** 1667
+
+### ¿Qué tipo de visualización de Splunk había en el primer archivo adjunto que Bud envió por correo electrónico a los empleados de Frothly para ilustrar el problema de la minería de criptomonedas?
+
+```cql
+index=botsv3 sourcetype="stream:smtp" | stats count by content_body
+```
+
+![](../Fotos/Pasted%20image%2020260712172846.png)
+
+![](../Fotos/Pasted%20image%2020260712172833.png)
+
+```cql
+index=botsv3 sourcetype="stream:smtp" *splunk*
+```
+
+![](../Fotos/Pasted%20image%2020260712174033.png)
+
+###  ¿Qué clave de acceso de usuario IAM genera los errores más evidentes al intentar acceder a los recursos IAM
+
 
