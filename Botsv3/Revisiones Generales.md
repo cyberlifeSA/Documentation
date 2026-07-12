@@ -36,6 +36,8 @@ index=botsv3 sourcetype="osquery:results" (intel OR amd)
 
 ![](../Fotos/Pasted%20image%2020260711210155.png)
 
+**Results:** Intel
+
 ### EventName cambiar API S3 de Privada a Publica
 
 ```cql
@@ -44,13 +46,17 @@ index=botsv3 sourcetype="aws:cloudtrail" | stats count by eventName
 
 ![](../Fotos/Pasted%20image%2020260711211144.png)
 
+**Results:** PutBucketAcl
+
 *Identificacion de ID de evento de la llamada de la API para este caso concreto*
 
 ```cql
 index=botsv3 sourcetype="aws:cloudtrail" eventName=PutBucketAcl
 ```
 
-![](../Fotos/Pasted%20image%2020260711211702.png)
+![](../Fotos/Pasted%20image%2020260711233514.png)
+
+**Results:** AB45689D-69CD-41E7-8705-5350402CF7AC
 
 *Bucket S3 `frothlywebcode` cambiado a publico luego de la llamada de la API*
 
@@ -87,4 +93,37 @@ index="botsv3" sourcetype=* frothly_html_memcached.tar.gz
 
 ![](../Fotos/Pasted%20image%2020260711223954.png)
 
+### Al iniciarse una instancia EC2 utilizando auto escalado se realizan tareas de configuración automatizadas: Ver cuantos paquetes y paquetes dependientes se instalan con el script de inicio en la nube.
+
+```cql
+index="botsv3" sourcetype="cloud-init-output" packages
+```
+
+![](../Fotos/Pasted%20image%2020260711232909.png)
+
+**Results:** Install 7 Packages (+13 Dependent packages)
+
+```cql
+index="botsv3" coinhive
+```
+
+![](../Fotos/Pasted%20image%2020260711235404.png)
+
+**Results:** chrome.exe
+
+```cql
+index="botsv3" coinhive
+| stats values(query{}) as query by host src_ip dest_ip
+```
+
+![](../Fotos/Pasted%20image%2020260711235934.png)
+
+Al comparar los equipos **BSTOLL-L** y **MKRAEUS-L** y analizar los eventos DNS asociados a los servidores de Coinhive, se observa que **MKRAEUS-L** únicamente registra respuestas DNS, mientras que **BSTOLL-L** presenta tanto consultas como respuestas DNS. Esto indica que la actividad se originó en **BSTOLL-L**, por lo que la evidencia apunta a un único resultado.
+
+**Results:** Host=BSTOLL-L SourceIp=192.168.247.131 DestinationIp=192.168.247.2 Query=coinhive.com
+
+```cql
+index="botsv3" sourcetype=stream:dns host="BSTOLL-L" coinhive
+| stats dc(query)
+```
 
