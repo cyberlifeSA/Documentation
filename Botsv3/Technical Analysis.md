@@ -496,9 +496,3 @@ Opening hdoor.exe events
 
 
 
-
-[Splunk BOTSv3 Write-Up](https://www.jamesgibbins.com/botsv3/#206----what-is-the-size-in-megabytes-of-the-targz-file-that-was-successfully-uploaded-into-the-s3-bucket-while-it-was-publicly-accessible)
-[Boss of the SOC version 3 Write-ups | Thành Sang](https://thanhsang-ir.site/posts/BOTSV3/#question-13-213-according-to-symantecs-website-what-is-the-severity-of-this-specific-coin-miner-threat)
-[Working Through Splunk's Boss of the SOC - Part 4](https://clo.ng/blog/bots-part4/)
-
-
