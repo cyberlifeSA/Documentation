@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Botsv3/Technical Analysis.md",
+                "file": "KVStore Splunk TroubleShooting/Informe de Incidente - Falla del KV Store en Splunk.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Technical Analysis"
+              "title": "Informe de Incidente - Falla del KV Store en Splunk"
             }
           }
         ],
@@ -197,9 +197,9 @@
   },
   "active": "45ad76c9cdf075e8",
   "lastOpenFiles": [
-    "KVStore Splunk TroubbleShooting/Informe de Incidente - Falla del KV Store en Splunk.md",
     "Botsv3/Technical Analysis.md",
-    "KVStore Splunk TroubbleShooting",
+    "KVStore Splunk TroubleShooting/Informe de Incidente - Falla del KV Store en Splunk.md",
+    "KVStore Splunk TroubleShooting",
     "Fotos/Pasted image 20260716220937.png",
     "Fotos/Pasted image 20260716220826.png",
     "Fotos/Pasted image 20260716220521.png",
