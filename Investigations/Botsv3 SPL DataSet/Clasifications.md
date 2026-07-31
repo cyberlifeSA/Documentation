@@ -34,6 +34,7 @@
 | Symantec Endpoint Protection (Antivirus - Security Log)                    | `symantec:ep:security:file`                           |
 | Security Logs Windows (Important)                                          | `WinEventLog:Security`                                |
 | Microsoft Entra ID (Sign-in Logs / Azure AD)                               | `ms:aad:signin`                                       |
+| Microsoft Entra ID (Active Directory)                                      | `ms:aad:audit`                                        |
 | Linux Security Logs - Events from: `/var/log/secure` & `/var/log/auth.log` | `linux_secure`                                        |
 | Managment acions and auditory from Microsoft 365 (Sysmon)                  | `ms:o365:management`                                  |
 

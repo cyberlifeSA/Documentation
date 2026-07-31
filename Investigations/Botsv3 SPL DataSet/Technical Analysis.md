@@ -6,7 +6,7 @@
 index=botsv3 sourcetype="*aws*"
 ```
 
-![](../Fotos/Pasted%20image%2020260711202544.png)
+![](../../Fotos/Pasted%20image%2020260711202544.png)
 
 **Results:** BSTOLL, BTUN, splunk_access, web_admin
 
@@ -20,7 +20,7 @@ index=botsv3 sourcetype="aws:clodtrail" *MFA* "userIdentity.sessionContext.attri
 
 `20/Aug/2018:15:15:20`
 
-![](../Fotos/Pasted%20image%2020260711203320.png)
+![](../../Fotos/Pasted%20image%2020260711203320.png)
 
 ### Procesador utilizado
 
@@ -28,13 +28,13 @@ index=botsv3 sourcetype="aws:clodtrail" *MFA* "userIdentity.sessionContext.attri
 index=botsv3 sourcetype="hardware" (intel OR amd)
 ```
 
-![](../Fotos/Pasted%20image%2020260711205458.png)
+![](../../Fotos/Pasted%20image%2020260711205458.png)
 
 ```cql
 index=botsv3 sourcetype="osquery:results" (intel OR amd)
 ```
 
-![](../Fotos/Pasted%20image%2020260711210155.png)
+![](../../Fotos/Pasted%20image%2020260711210155.png)
 
 **Results:** Intel
 # Incident 2: Secret Key from AWS exposed on a GitHub public access repository
@@ -44,7 +44,7 @@ index=botsv3 sourcetype="osquery:results" (intel OR amd)
 index=botsv3 sourcetype="aws:cloudtrail" | stats count by eventName
 ```
 
-![](../Fotos/Pasted%20image%2020260711211144.png)
+![](../../Fotos/Pasted%20image%2020260711211144.png)
 
 **Results:** PutBucketAcl
 
@@ -54,13 +54,13 @@ index=botsv3 sourcetype="aws:cloudtrail" | stats count by eventName
 index=botsv3 sourcetype="aws:cloudtrail" eventName=PutBucketAcl
 ```
 
-![](../Fotos/Pasted%20image%2020260711233514.png)
+![](../../Fotos/Pasted%20image%2020260711233514.png)
 
 **Results:** AB45689D-69CD-41E7-8705-5350402CF7AC
 
 *Bucket S3 `frothlywebcode` cambiado a publico luego de la llamada de la API*
 
-![](../Fotos/Pasted%20image%2020260711211928.png)
+![](../../Fotos/Pasted%20image%2020260711211928.png)
 
 ### Identificación de archivo extensión .txt subido a Bucket S3 (Mientras era accesible tras llamamiento API PutBucketAcl)
 
@@ -72,7 +72,7 @@ index=botsv3 sourcetype="aws:s3:accesslogs" *.txt
 
 `operation="REST.PUT.OBJECT"` : Generalmente significa que **alguien subió un objeto a un bucket de S3**.
 
-![](../Fotos/Pasted%20image%2020260711215819.png)
+![](../../Fotos/Pasted%20image%2020260711215819.png)
 
 ### Identificación de tamaño archivo extensión .tar.gz subido a Bucket S3 (Mientras era accesible tras llamamiento API PutBucketAcl al hacerse publico)
 
@@ -82,7 +82,7 @@ index=botsv3 index=botsv3 sourcetype="aws:s3:accesslogs" *.tar.gz
 
 `operation="REST.PUT.OBJECT"` : Generalmente significa que **alguien subió un objeto a un bucket de S3**.
 
-![](../Fotos/Pasted%20image%2020260711222112.png)
+![](../../Fotos/Pasted%20image%2020260711222112.png)
 
 ```cql
 index="botsv3" sourcetype=* frothly_html_memcached.tar.gz
@@ -91,7 +91,7 @@ index="botsv3" sourcetype=* frothly_html_memcached.tar.gz
 | table size_mb
 ```
 
-![](../Fotos/Pasted%20image%2020260711223954.png)
+![](../../Fotos/Pasted%20image%2020260711223954.png)
 
 **Results:** 2.93MB
 
@@ -101,7 +101,7 @@ index="botsv3" sourcetype=* frothly_html_memcached.tar.gz
 index="botsv3" sourcetype="cloud-init-output" packages
 ```
 
-![](../Fotos/Pasted%20image%2020260711232909.png)
+![](../../Fotos/Pasted%20image%2020260711232909.png)
 
 **Results:** Install 7 Packages (+13 Dependent packages)
 
@@ -111,7 +111,7 @@ index="botsv3" sourcetype="cloud-init-output" packages
 index="botsv3" coinhive
 ```
 
-![](../Fotos/Pasted%20image%2020260711235404.png)
+![](../../Fotos/Pasted%20image%2020260711235404.png)
 
 **Results:** chrome.exe
 
@@ -120,7 +120,7 @@ index="botsv3" coinhive
 | stats values(query{}) as query by host src_ip dest_ip
 ```
 
-![](../Fotos/Pasted%20image%2020260711235934.png)
+![](../../Fotos/Pasted%20image%2020260711235934.png)
 
 - coinhive.com - 20.104.209.59
 - ws001.coinhive.com - 217.182.164.14
@@ -140,7 +140,7 @@ index="botsv3" sourcetype=stream:dns host="BSTOLL-L" coinhive
 | stats dc(query)
 ```
 
-![](../Fotos/Pasted%20image%2020260712004620.png)
+![](../../Fotos/Pasted%20image%2020260712004620.png)
 
 **Results:** 6
 ### Primer ID de firma visto por amenaza en Endpoint
@@ -150,7 +150,7 @@ index="botsv3" sourcetype=symantec:ep:security:file host="SEPM" *signature*
 | sort _time
 ```
 
-![](../Fotos/Pasted%20image%2020260712012702.png)
+![](../../Fotos/Pasted%20image%2020260712012702.png)
 
 En un antivirus como **Symantec Endpoint Protection (SEP)**, una **firma** (_signature_) es un patrón que permite identificar una amenaza conocida.
 
@@ -166,7 +166,7 @@ En un antivirus como **Symantec Endpoint Protection (SEP)**, una **firma** (_sig
 index="botsv3" sourcetype="symantec*" AND *coin*
 ```
 
-![](../Fotos/Pasted%20image%2020260712142732.png)
+![](../../Fotos/Pasted%20image%2020260712142732.png)
 
 **Results:** BTUN-L
 
@@ -176,25 +176,25 @@ index="botsv3" sourcetype="symantec*" AND *coin*
 index="botsv3" sourcetype="winhostmon" OS  | rex "OS=\"(?<OS>[^\"]+)\"" | stats count by OS
 ```
 
-![](../Fotos/Pasted%20image%2020260712151955.png)
+![](../../Fotos/Pasted%20image%2020260712151955.png)
 
 ```cql
 index="botsv3" sourcetype="winhostmon" OS  | rex "OS=\"(?<OS>[^\"]+)\"" | search OS="Microsoft Windows 10 Enterprise"
 ```
 
-![](../Fotos/Pasted%20image%2020260712152510.png)
+![](../../Fotos/Pasted%20image%2020260712152510.png)
 
 ```cql
 index="botsv3" sourcetype="winhostmon" OS  | rex "OS=\"(?<OS>[^\"]+)\"" | stats count by OS host
 ```
 
-![](../Fotos/Pasted%20image%2020260712153649.png)
+![](../../Fotos/Pasted%20image%2020260712153649.png)
 
 ```cql
 index=botsv3 sourcetype="WinEventLog:Security" host="BSTOLL-L"
 ```
 
-![](../Fotos/Pasted%20image%2020260712155341.png)
+![](../../Fotos/Pasted%20image%2020260712155341.png)
 
 **Results:** BSTOLL-L.froth.ly **User:** Bud Stoll
 
@@ -206,7 +206,7 @@ Un **flujo NVM (NVM flow)** es un registro de una comunicación de red observada
 index=botsv3 source="cisconvmflowdata" coinhive
 ```
 
-![](../Fotos/Pasted%20image%2020260712163534.png)
+![](../../Fotos/Pasted%20image%2020260712163534.png)
 
 | `fss="1534772317"` | Marca de tiempo de inicio del flujo (época) - formato en bruto |
 | ------------------ | -------------------------------------------------------------- |
@@ -227,7 +227,7 @@ AND (104.20.209.59 OR 217.182.164.14 OR 37.187.165.41 OR 37.187.166.108 OR 37.18
 |table timetaken 
 ```
 
-![](../Fotos/Pasted%20image%2020260712164306.png)
+![](../../Fotos/Pasted%20image%2020260712164306.png)
 
 **Results:** 1667
 
@@ -237,15 +237,15 @@ AND (104.20.209.59 OR 217.182.164.14 OR 37.187.165.41 OR 37.187.166.108 OR 37.18
 index=botsv3 sourcetype="stream:smtp" | stats count by content_body
 ```
 
-![](../Fotos/Pasted%20image%2020260712172846.png)
+![](../../Fotos/Pasted%20image%2020260712172846.png)
 
-![](../Fotos/Pasted%20image%2020260712172833.png)
+![](../../Fotos/Pasted%20image%2020260712172833.png)
 
 ```cql
 index=botsv3 sourcetype="stream:smtp" *splunk*
 ```
 
-![](../Fotos/Pasted%20image%2020260712174033.png)
+![](../../Fotos/Pasted%20image%2020260712174033.png)
 
 **Results:** Column Chart
 
@@ -262,14 +262,14 @@ index=botsv3 sourcetype="aws:cloudtrail" *IAM* errorCode!="success" eventSource=
 
 `userIdentity.accessKeyId` El identificador de la clave de acceso (Access Key ID) utilizada para autenticar la solicitud a la API de AWS. (Identificador de la credencial)
 
-![](../Fotos/Pasted%20image%2020260712194900.png)
+![](../../Fotos/Pasted%20image%2020260712194900.png)
 
 ```cql
 index=botsv3 sourcetype="aws:cloudtrail" *IAM* errorCode!="success" eventSource="iam.amazonaws.com" 
 | stats dc(errorMessage) as error by userIdentity.accessKeyId userAgent sourceIPAddress
 ```
 
-![](../Fotos/Pasted%20image%2020260712203330.png)
+![](../../Fotos/Pasted%20image%2020260712203330.png)
 
 **Results:** Access Key ID = AKIAJOGCDXJ5NW5PXUPA  Origin Ips = 35.153.154.221 (4), 209.107.196.112, 82.102.18.111 User Agents = Boto3 Linux (x4), Boto3 Windows, ElasticWolf
 
@@ -283,7 +283,7 @@ index="botsv3" source="stream:smtp" "access key"
 index="botsv3" aws support case
 ```
 
-![](../Fotos/Pasted%20image%2020260713181338.png)
+![](../../Fotos/Pasted%20image%2020260713181338.png)
 
 **Results:** 5244329601 20/08/2018  09:16:55.260 UTC
 
@@ -293,9 +293,9 @@ index="botsv3" aws support case
 index="botsv3" aws support case
 ```
 
-![](../Fotos/Pasted%20image%2020260713184104.png)
+![](../../Fotos/Pasted%20image%2020260713184104.png)
 
-![](../Fotos/Pasted%20image%2020260713184147.png)
+![](../../Fotos/Pasted%20image%2020260713184147.png)
 
 **Results:** Bx8/gTsYC98T0oWiFhpmdROqhELPtXJSR9vFPNGk
 
@@ -305,7 +305,7 @@ index="botsv3" aws support case
 index="botsv3" sourcetype="*aws*" userIdentity.accessKeyId="AKIAJOGCDXJ5NW5PXUPA" eventName=CreateAccessKey
 ```
 
-![](../Fotos/Pasted%20image%2020260713185450.png)
+![](../../Fotos/Pasted%20image%2020260713185450.png)
 
 **Results:** nullweb_admin
 
@@ -315,7 +315,7 @@ index="botsv3" sourcetype="*aws*" userIdentity.accessKeyId="AKIAJOGCDXJ5NW5PXUPA
 index="botsv3" sourcetype="*aws*" userIdentity.accessKeyId="AKIAJOGCDXJ5NW5PXUPA" eventName=DescribeAccountAttributes
 ```
 
-![](../Fotos/Pasted%20image%2020260713191513.png)
+![](../../Fotos/Pasted%20image%2020260713191513.png)
 
 **Results:** ElasticWolf/5.1.6 20/08/2018 09:27:06.000
 
@@ -327,13 +327,13 @@ index="botsv3" sourcetype="*aws*" userIdentity.accessKeyId="AKIAJOGCDXJ5NW5PXUPA
 index="botsv3" sourcetype="aws:cloudtrail" eventName=RunInstances | reverse
 ```
 
-![](../Fotos/Pasted%20image%2020260713194219.png)
+![](../../Fotos/Pasted%20image%2020260713194219.png)
 
 [Ubuntu Cloud Image Finder](https://cloud-images.ubuntu.com/locator/)
 
-![](../Fotos/Pasted%20image%2020260713194420.png)
+![](../../Fotos/Pasted%20image%2020260713194420.png)
 
-![](../Fotos/Pasted%20image%2020260713194955.png)
+![](../../Fotos/Pasted%20image%2020260713194955.png)
 
 **Results:** Xenial Xerus
 
@@ -354,7 +354,7 @@ index=botsv3 sourcetype=aws:cloudwatchlogs brewertalk
 |eval rounded_number = round(avg_third_level_length, 2)
 ```
 
-![](../Fotos/Pasted%20image%2020260714001044.png)
+![](../../Fotos/Pasted%20image%2020260714001044.png)
 
 **Results:** 8.10
 
@@ -367,9 +367,9 @@ index=botsv3 sourcetype=aws:cloudwatchlogs brewertalk
 index=botsv3 source="stream:udp"
 ```
 
-![](../Fotos/Pasted%20image%2020260713222335.png)
+![](../../Fotos/Pasted%20image%2020260713222335.png)
 
-![](../Fotos/Pasted%20image%2020260713225632.png)
+![](../../Fotos/Pasted%20image%2020260713225632.png)
 
 ```cql
 index=botsv3 source="stream:udp" *CRYP70KOL5CH* OR *6HOUL@G3R*
@@ -377,7 +377,7 @@ index=botsv3 source="stream:udp" *CRYP70KOL5CH* OR *6HOUL@G3R*
 | reverse
 ```
 
-![](../Fotos/Pasted%20image%2020260713225955.png)
+![](../../Fotos/Pasted%20image%2020260713225955.png)
 
 La búsqueda de `6HOUL@G3R y CRYP70KOL5CH` en Google permitió identificar otros sitios, como `lilyandhops.com` y `brewsbyhildy.com`, que parecen haber sufrido el mismo tipo de compromiso y vandalización.
 
@@ -385,7 +385,7 @@ La búsqueda de `6HOUL@G3R y CRYP70KOL5CH` en Google permitió identificar otr
 index=botsv3 source="stream:http" www.lilyandhops.com
 ```
 
-![](../Fotos/Pasted%20image%2020260713230810.png)
+![](../../Fotos/Pasted%20image%2020260713230810.png)
 
 **Results:** index1.jpeg dest_port: 11211   dest_ip: 172.16.0.178   dest_content: STORED  src_content: set injected   dest_content: $VALUE injected
 
@@ -395,7 +395,7 @@ index=botsv3 source="stream:http" www.lilyandhops.com
 index=botsv3 source="ms_o365_message_trace" OR sourcetype="ms:o365:management" onedrive Workload=OneDrive Operation=FileUploaded | table ClientIP UserId ObjectId UserAgent
 ```
 
-![](../Fotos/Pasted%20image%2020260714100714.png)
+![](../../Fotos/Pasted%20image%2020260714100714.png)
 
 **Results:** Mozilla/5.0 (X11; U; Linux i686; ko-KP; rv: 19.1br) Gecko/20130508 Fedora/1.9.1-2.5.rs3.0 NaenaraBrowser/3.5b4  Files: BRUCE BIRTHDAY HAPPY HOUR PICS.lnk (20/08/2018 09:57:33) -  stout-2.jpg - morebeer.jpg stout.png (3x 20/08/2018 09:57:17)User: bgist@froth.ly
 
@@ -405,7 +405,7 @@ index=botsv3 source="ms_o365_message_trace" OR sourcetype="ms:o365:management" o
 index=botsv3 sourcetype="ms:aad:signin" expired
 ```
 
-![](../Fotos/Pasted%20image%2020260714154046.png)
+![](../../Fotos/Pasted%20image%2020260714154046.png)
 
 
 ```cql
@@ -413,7 +413,7 @@ index=botsv3 sourcetype="ms:aad:*" (*Kevin* OR *Lagerfield*)
 | reverse
 ```
 
-![](../Fotos/Pasted%20image%2020260714155152.png)
+![](../../Fotos/Pasted%20image%2020260714155152.png)
 
 **Results:** ipAddress: 199.66.91.253 userDisplayName: Kevin Lagerfield
 
@@ -424,15 +424,15 @@ index=botsv3 sourcetype="ms:aad:*" (*Kevin* OR *Lagerfield*)
 index=botsv3 *macro*
 ```
 
-![](../Fotos/Pasted%20image%2020260714160946.png)
+![](../../Fotos/Pasted%20image%2020260714160946.png)
 
 ```cql
 index=botsv3 *macro* "attach_filename{}"="Malware Alert Text.txt"
 ```
 
-![](../Fotos/Pasted%20image%2020260714161809.png)
+![](../../Fotos/Pasted%20image%2020260714161809.png)
 
-![](../Fotos/Pasted%20image%2020260714162129.png)
+![](../../Fotos/Pasted%20image%2020260714162129.png)
 
 **Results:** Para la variante **W97M.Empstage**, la fecha de descubrimiento que aparece en la ficha de **Symantec/Norton** 11/11/2016
 
@@ -442,13 +442,13 @@ index=botsv3 *macro* "attach_filename{}"="Malware Alert Text.txt"
 index=botsv3 useradd OR adduser
 ```
 
-![](../Fotos/Pasted%20image%2020260714172535.png)
+![](../../Fotos/Pasted%20image%2020260714172535.png)
 
 ```cql
 index=botsv3 tomcat7 source="/var/log/osquery/osqueryd.results.log" | table columns.cmdline
 ```
 
-![](../Fotos/Pasted%20image%2020260714175416.png)
+![](../../Fotos/Pasted%20image%2020260714175416.png)
 
 **Results:** ilovedavidverve
 
@@ -458,7 +458,7 @@ index=botsv3 tomcat7 source="/var/log/osquery/osqueryd.results.log" | table colu
 index=botsv3 EventCode=4720
 ```
 
-![](../Fotos/Pasted%20image%2020260716211119.png)
+![](../../Fotos/Pasted%20image%2020260716211119.png)
 
 **Results:** svcvnc
 
@@ -466,7 +466,7 @@ index=botsv3 EventCode=4720
 
 En los años 90 y principios de los 2000, muchos **hackers y grupos underground** usaban el número **1337** como símbolo de "elite". Por eso, algunos programas y troyanos comenzaron a utilizar el puerto **1337**.
 
-![](../Fotos/Pasted%20image%2020260716212911.png)
+![](../../Fotos/Pasted%20image%2020260716212911.png)
 
 **Results:** pid=14356(ID)
 
@@ -476,7 +476,7 @@ En los años 90 y principios de los 2000, muchos **hackers y grupos underground*
 index=botsv3 sourcetype="ms:o365:management" Workload="Exchange" SearchQuery
 ```
 
-![](../Fotos/Pasted%20image%2020260716215335.png)
+![](../../Fotos/Pasted%20image%2020260716215335.png)
 
 **Results:** cromdale OR beer OR financial OR secret
 
@@ -486,13 +486,58 @@ index=botsv3 sourcetype="ms:o365:management" Workload="Exchange" SearchQuery
 index=botsv3 host="FYODOR-L" source="WinEventLog:Microsoft-Windows-Sysmon/Operational" | rex "<Data Name='Image'>(?<Image>[^<]+)</Data>" | search Image="C:\\Windows\\Temp\\*" |stats count by Image
 ```
 
-![](../Fotos/Pasted%20image%2020260716220521.png)
+![](../../Fotos/Pasted%20image%2020260716220521.png)
 
 Opening hdoor.exe events
 
-![](../Fotos/Pasted%20image%2020260716220937.png)
+![](../../Fotos/Pasted%20image%2020260716220937.png)
 
 **Results:** MD5=586EF56F4D8963DD546163AC31C865D7
+
+### Basándonos en la información recopilada para la pregunta 304, ¿a qué grupos se asignó este usuario después de que el endpoint fuera comprometido?
+
+```cql
+index="botsv3" *svcvnc* EventCode=4732
+```
+
+![](../../Fotos/Pasted%20image%2020260717003750.png)
+
+**Results:** Admiinistrators, Users
+
+### En algún momento durante el ataque, la cuenta de dominio de un usuario queda desactivada. ¿Cuál es la dirección de correo electrónico del usuario cuya cuenta se desactiva y cuál es la dirección de correo electrónico del usuario que deshabilitó su cuenta?
+
+Para identificar eventos de desactivación de cuentas, buscamos actividades en las que Fyodor deshabilitó una cuenta de usuario en los registros de Azure AD ya que en analisis pasados detectamos que dicho usuario corresponde al administrador de dominio Frothly.
+
+![](../../Fotos/Pasted%20image%2020260717004542.png)
+
+**Results:** bgist@froth.ly, fyodor@froth.ly
+
+### Otro conjunto de correos electrónicos de phishing se enviaron a empleados de Frothly después de que el adversario lograra apoderarse de un ordenador de Frothly. Este contenido malicioso fue detectado y dejó un artefacto digital. ¿Cuál es el nombre de este archivo?
+
+```cql
+index=botsv3 *.xlsm*
+```
+
+![](../../Fotos/Pasted%20image%2020260717010929.png)
+
+**Results:** Frothly-Brewery-Financial-Planning-FY2019-Draft.xlsm
+
+### Basándome en la respuesta a la pregunta 310, ¿cuál es el nombre del ejecutable que estaba incrustado en el malware?
+
+```cql
+index=botsv3 *.xlsm* sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+```
+
+![](../../Fotos/Pasted%20image%2020260717011327.png)
+
+**Results:**  HxTsr.exe
+
+312...
+
+
+[Splunk BOTSv3 Write-Up](https://www.jamesgibbins.com/botsv3/#206----what-is-the-size-in-megabytes-of-the-targz-file-that-was-successfully-uploaded-into-the-s3-bucket-while-it-was-publicly-accessible)
+[Boss of the SOC version 3 Write-ups | Thành Sang](https://thanhsang-ir.site/posts/BOTSV3/#question-13-213-according-to-symantecs-website-what-is-the-severity-of-this-specific-coin-miner-threat)
+[Working Through Splunk's Boss of the SOC - Part 4](https://clo.ng/blog/bots-part4/)
 
 
 

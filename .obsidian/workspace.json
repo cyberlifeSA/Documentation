@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Botsv3/Technical Analysis.md",
+                "file": "Investigations/Botsv3 SPL DataSet/Technical Analysis.md",
                 "mode": "source",
                 "source": false
               },
@@ -56,7 +56,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "byCreatedTimeReverse",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Explorador de archivos"
@@ -197,20 +199,26 @@
   },
   "active": "45ad76c9cdf075e8",
   "lastOpenFiles": [
+    "TroubleShooting/KVStore Splunk TroubleShooting/Informe de Incidente - Falla del KV Store en Splunk.md",
+    "TroubleShooting/KVStore Splunk TroubleShooting",
+    "TroubleShooting",
+    "Fortinet/Fortinet.md",
+    "Investigations",
+    "Investigations/Botsv3 SPL DataSet/Technical Analysis.md",
+    "Fortinet",
+    "Fotos/Pasted image 20260717011327.png",
+    "Fotos/Pasted image 20260717011231.png",
+    "Fotos/Pasted image 20260717010929.png",
+    "Fotos/Pasted image 20260717005524.png",
+    "Fotos/Pasted image 20260717005510.png",
     "KVStore Splunk TroubleShooting/Informe de Incidente - Falla del KV Store en Splunk.md",
-    "Botsv3/Technical Analysis.md",
-    "Botsv3/Clasifications.md",
+    "Investigations/Botsv3 SPL DataSet/Clasifications.md",
+    "Fotos/Pasted image 20260717004542.png",
+    "Fotos/Pasted image 20260717003750.png",
     "KVStore Splunk TroubleShooting",
     "Fotos/Pasted image 20260716220937.png",
     "Fotos/Pasted image 20260716220826.png",
     "Fotos/Pasted image 20260716220521.png",
-    "Fotos/Pasted image 20260716215335.png",
-    "Fotos/Pasted image 20260716212911.png",
-    "Fotos/Pasted image 20260716211119.png",
-    "Fotos/Pasted image 20260714175416.png",
-    "Fotos/Pasted image 20260714172535.png",
-    "Fotos/Pasted image 20260714172505.png",
-    "Fotos/Pasted image 20260714162129.png",
     "Sin título.base",
     "2026-07-13.md",
     "Sin título 1.canvas",
@@ -218,6 +226,6 @@
     "README.md",
     "Botsv3/General Information.md",
     "Fotos",
-    "Botsv3"
+    "Investigations/Botsv3 SPL DataSet"
   ]
 }
