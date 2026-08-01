@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Fortinet/Fortinet.md",
+                "file": "Investigations/Botsv3 SPL DataSet/Technical Analysis.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fortinet"
+              "title": "Technical Analysis"
             }
           }
         ],
@@ -199,22 +199,21 @@
   },
   "active": "45ad76c9cdf075e8",
   "lastOpenFiles": [
-    "Fotos/Pasted image 20260731202800.png",
-    "Fotos/Pasted image 20260731202513.png",
-    "Fotos/Pasted image 20260731200730.png",
-    "Fotos/Pasted image 20260731195818.png",
-    "Fotos/Pasted image 20260731195809.png",
-    "Fotos/Pasted image 20260731195703.png",
-    "Fotos/Pasted image 20260731195651.png",
-    "Fotos/Pasted image 20260731195629.png",
-    "Fotos/Pasted image 20260731194251.png",
-    "Fotos/Pasted image 20260731194207.png",
-    "Fotos/Pasted image 20260731194059.png",
+    "Fortinet/Fortinet.md",
+    "Fotos/Pasted image 20260731232855.png",
+    "Fotos/Pasted image 20260731232702.png",
+    "Fotos/Pasted image 20260731232636.png",
+    "Fotos/Pasted image 20260731232408.png",
+    "Fotos/Pasted image 20260731230840.png",
+    "Fotos/Pasted image 20260731230214.png",
+    "Fotos/Pasted image 20260731230200.png",
+    "Fotos/Pasted image 20260731220229.png",
+    "Fotos/Pasted image 20260731220204.png",
+    "Fotos/Pasted image 20260731220100.png",
     "Investigations/Botsv3 SPL DataSet/Technical Analysis.md",
     "TroubleShooting/KVStore Splunk TroubleShooting/Informe de Incidente - Falla del KV Store en Splunk.md",
     "TroubleShooting/KVStore Splunk TroubleShooting",
     "TroubleShooting",
-    "Fortinet/Fortinet.md",
     "Investigations",
     "Fortinet",
     "KVStore Splunk TroubleShooting/Informe de Incidente - Falla del KV Store en Splunk.md",
